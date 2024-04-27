@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "heath-backend"
+version = "0.1.0"
+description = "Backend for health app"
+authors = ["Artem <burenin.aa@yandex.ru>"]
+readme = "README.md"
+packages = [
+    { include = "auth", from = "src" },
+    { include = "common", from = "src" },
+    { include = "health", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.1"
+uvicorn = "^0.29.0"
+pydantic = {extras = ["dotenv", "email"], version = "^2.7.1"}
+pydantic-settings = "^2.2.1"
+pyyaml = "^6.0.1"
+loguru = "^0.7.2"
+sqlalchemy = { extras = ["psycopg2"], version = "^2.0.29" }
+pyjwt = "^2.8.0"
+pg8000 = "^1.31.1"
+python-multipart = "^0.0.9"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.0"
+alembic = "^1.13.1"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.1.1"
+pytest-coverage = "^0.0"
+
+[tool.pyright]
+venvPath = "./.venv/"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
